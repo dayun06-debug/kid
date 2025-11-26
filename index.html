@@ -59,7 +59,7 @@
       flex-direction:column;
       transition: transform .15s ease, box-shadow .15s ease;
       position: relative;
-      /* 커서 추가 */
+      /* 클릭 가능함을 표시 */
       cursor: pointer;
     }
     .card:hover{
@@ -123,8 +123,10 @@
  * @param {string} title - 검색할 책의 제목
  */
 function searchBook(title){
-const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
-window.location.href = url; // 현재 창에서 검색 페이지로 이동
+  // URL에 검색 키워드를 인코딩하여 포함
+  const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
+  // 현재 창에서 검색 페이지로 이동 (자동 검색 결과 표시)
+  window.location.href = url;
 }
 </script>
 </head>
