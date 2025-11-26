@@ -2,90 +2,341 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>오리는 꽥꽥, 새는 짹짹! 그림책 속 동물들</title>
+  <meta name="description" content="동물 그림책 추천 목록" />
   <style>
-    body { font-family: sans-serif; margin: 0; padding: 20px; background: #fafafa; }
-    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 20px; }
-    .card { background: #fff; border-radius: 12px; overflow: hidden; cursor: pointer; transition: transform .15s; box-shadow: 0 2px 6px rgba(0,0,0,0.1); }
-    .card:hover { transform: translateY(-4px); }
-    .cover { width: 100%; height: 240px; object-fit: cover; }
-    .body { padding: 12px; }
-    .badge { font-size: 12px; background: #74b9ff; color: white; padding: 2px 6px; border-radius: 6px; }
-    h2 { font-size: 16px; margin: 8px 0 4px; }
-    .subtitle { font-size: 14px; color: #555; margin: 0; }
-  </style>
-  <script>
-    function searchBook(title) {
-      const url = `https://testpublic.seocholib.or.kr/UseData?q=${encodeURIComponent(title)}`;
-      window.open(url, '_blank');
+    :root{
+      --bg:#f7f7fb;
+      --card:#ffffff;
+      --muted:#555;
+      --accent:#2563eb;
+      --maxw:1200px;
+      --radius:10px;
+      --easy: #10b981;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", Arial, sans-serif;
     }
-  </script>
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      line-height:1.5;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin:32px auto;
+      padding:24px;
+    }
+    header.site{
+      text-align:center;
+      margin-bottom:32px;
+    }
+    header h1{
+      font-size:28px;
+      margin:0;
+      word-break: keep-all;
+    }
+    header p.lead{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:16px;
+      word-break: keep-all;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:24px;
+      justify-content: center;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display:flex;
+      flex-direction:column;
+      transition: transform .15s ease, box-shadow .15s ease;
+      position: relative;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .cover{
+      width:100%;
+      height:auto;
+      aspect-ratio: 2/3;
+      background:#eee;
+      object-fit: cover;
+    }
+    .body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      flex:1;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      width: fit-content;
+    }
+    .badge.easy { background-color: var(--easy); }
+
+    .title{
+      font-weight:700;
+      font-size:17px;
+      margin:0;
+      line-height: 1.3;
+    }
+    .subtitle{
+      font-size:14px;
+      color:var(--muted);
+      margin:0;
+    }
+    .desc{
+      font-size:14px;
+      color:#333;
+      flex:1;
+      margin-top:8px;
+      line-height:1.5;
+      word-break: keep-all;
+    }
+
+    @media (max-width:600px){
+      header h1 { font-size:24px; }
+      .grid { gap:16px; }
+    }
+  </style>
+<script>
+function searchBook(title) {
+const url = `https://testpublic.seocholib.or.kr/UseData?q=${encodeURIComponent(title)}`;
+window.open(url, '_blank');
+}
+</script>
 <script>
 function searchBook(title){
-  const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
-  window.location.href = url;
+const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
+window.location.href = url;
 }
 </script>
 </head>
 <body>
+  <main class="wrap">
+    <header class="site">
+      <h1>오리는 꽥꽥, 새는 짹짹! 그림책 속에 있는 동물들</h1>
+      <p class="lead">아이들이 사랑하는 동물 주인공 그림책 20선 🐾</p>
+    </header>
 
-<h1>동물 그림책 추천 20선</h1>
-<div class="grid">
+    <section class="grid">
 
-  <!-- 1 -->
-  <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-    <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" />
-    <div class="body">
-      <span class="badge">그림책</span>
-      <h2 class="title">문 밖에 사자가 있다</h2>
-      <p class="subtitle">윤아해 · 뜨인돌어린이</p>
-    </div>
-  </article>
+      <!-- 1 -->
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
+        <img class="cover" onclick="searchBook(this.parentElement.querySelector('.title').innerText)"$1 src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" / >
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">문 밖에 사자가 있다</h2>
+          <p class="subtitle">윤아해 · 뜨인돌어린이</p>
+        </div>
+      </article>
 
-  <!-- 2 -->
-  <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-    <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791188867127.jpg" />
-    <div class="body">
-      <span class="badge">그림책</span>
-      <h2 class="title">문어 목욕탕</h2>
-      <p class="subtitle">최민지 · 노란상상</p>
-    </div>
-  </article>
+      <!-- 2 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791188867127.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">문어 목욕탕</h2>
+          <p class="subtitle">최민지 · 노란상상</p>
+        </div>
+      </article>
 
-  <!-- 3 ~ 17 (중간 생략·추가 시 넣어드릴게요) -->
+ <!-- 3 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791190779487.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">민들레사자의 꿈</h2>
+          <p class="subtitle">요코 다나카 · 진선아이</p>
+        </div>
+      </article>
 
-  <!-- 18 -->
-  <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-    <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983891501.jpg" />
-    <div class="body">
-      <span class="badge">그림책</span>
-      <h2 class="title">오리 왕자</h2>
-      <p class="subtitle">이정록 · 바우솔</p>
-    </div>
-  </article>
+      <!-- 4 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191126235.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">부잣집 강아지 버즈</h2>
+          <p class="subtitle">마리안나 코포 · 딸기책방</p>
+        </div>
+      </article>
 
-  <!-- 19 -->
-  <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-    <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788949105543.jpg" />
-    <div class="body">
-      <span class="badge">그림책</span>
-      <h2 class="title">올빼미 기사</h2>
-      <p class="subtitle">크리스토퍼 데니스 · 비룡소</p>
-    </div>
-  </article>
+      <!-- 5 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160946352.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">빨간 조끼 여우의 장신구 가게</h2>
+          <p class="subtitle">김미혜 · 사계절</p>
+        </div>
+      </article>
 
-  <!-- 20 -->
-  <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-    <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788964965177.jpg" />
-    <div class="body">
-      <span class="badge">그림책</span>
-      <h2 class="title">귀여워! 판다 도감</h2>
-      <p class="subtitle">이마이즈미 다다아키 · 토토북</p>
-    </div>
-  </article>
+      <!-- 6 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791164067107.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">빵이 된 백곰</h2>
+          <p class="subtitle">시바타 게이코 · 길벗스쿨</p>
+        </div>
+      </article>
 
-</div>
+      <!-- 7 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791198695468.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">사랑에 빠진 개구리</h2>
+          <p class="subtitle">맥스 벨트하우스 · 마루벌</p>
+        </div>
+      </article>
 
+      <!-- 8 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791166370984.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">꼬물꼬물 애벌레 코라</h2>
+          <p class="subtitle">엠마 트렌터 · 사파리</p>
+        </div>
+      </article>
+
+      <!-- 9 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788993242980.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">슈퍼 거북</h2>
+          <p class="subtitle">유설화 · 책읽는곰</p>
+        </div>
+      </article>
+
+      <!-- 10 -->
+     <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788968333729.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">귀 없는 코끼리 알퐁소</h2>
+          <p class="subtitle">앙브르 라방디에 · 물주는아이</p>
+        </div>
+      </article>
+
+      <!-- 11 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788943315603.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">아기 돼지 삼형제</h2>
+          <p class="subtitle">그자비에 드뇌 · 보림</p>
+        </div>
+      </article>
+
+      <!-- 12 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952782823.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">아기 오리들한테 길을 비켜 주세요</h2>
+          <p class="subtitle">로버트 맥클로스키 · 시공주니어</p>
+        </div>
+      </article>
+
+      <!-- 13 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952763082.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">아기 쥐가 잠자러 가요</h2>
+          <p class="subtitle">박정완 · 시공주니어</p>
+        </div>
+      </article>
+
+      <!-- 14 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791197496325.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">아기 토끼의 생일 파티</h2>
+          <p class="subtitle">박현종 · 종이종</p>
+        </div>
+      </article>
+
+      <!-- 15 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952786050.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">아빠 곰이 집으로 와요</h2>
+          <p class="subtitle">엘세 홀메룬 미나릭 · 시공주니어</p>
+        </div>
+      </article>
+
+      <!-- 16 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788939536265.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">악어가 쿵 작은 새가 포르르</h2>
+          <p class="subtitle">이은경 · 대교북스주니어</p>
+        </div>
+      </article>
+
+      <!-- 17 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955821789.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">안녕 달토끼야</h2>
+          <p class="subtitle">문승연 · 길벗어린이</p>
+        </div>
+      </article>
+
+      <!-- 18 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983891501.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">오리 왕자</h2>
+          <p class="subtitle">이정록 · 바우솔</p>
+        </div>
+      </article>
+
+      <!-- 19 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788949105543.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">올빼미 기사</h2>
+          <p class="subtitle">크리스토퍼 데니스 · 비룡소</p>
+        </div>
+      </article>
+
+      <!-- 20 -->
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788964965177.jpg" />
+        <div class="body">
+          <span class="badge easy">그림책</span>
+          <h2 class="title">귀여워! 판다 도감</h2>
+          <p class="subtitle">이마이즈미 다다아키 · 토토북</p>
+        </div>
+      </article>
+
+    </section>
+  </main>
 </body>
-</html>
