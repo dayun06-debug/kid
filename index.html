@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>오리는 꽥꽥, 새는 짹짹! 그림책 속 동물들</title>
+<title>안녕! 설레는 시작이야!</title>
 <style>
 body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; background:#f7f7fb; color:#0f172a; }
 .wrap { max-width:1200px; margin:32px auto; padding:24px; }
@@ -20,10 +20,8 @@ body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 </style>
 <script>
 function goLibrary(title){
-  // 클립보드에 책 제목 복사
   navigator.clipboard.writeText(title.trim()).then(() => {
     alert(`"${title}"가 클립보드에 복사되었습니다.\n양재도서관 검색창에 붙여넣기 해주세요.`);
-    // 양재도서관 검색 페이지 새 탭으로 열기
     window.open('https://yangjae.seocholib.or.kr/TotalSearch', '_blank');
   }, () => {
     alert('클립보드 복사에 실패했습니다. 수동으로 복사해주세요.');
@@ -35,190 +33,155 @@ function goLibrary(title){
 <body>
 <main class="wrap">
 <header class="site">
-  <h1>오리는 꽥꽥, 새는 짹짹! 그림책 속 동물들</h1>
-  <p>아이들이 사랑하는 동물 그림책 20선 🐾</p>
+  <h1>추천 도서 목록</h1>
+  <p>클릭하면 제목이 복사되고 양재도서관 검색 페이지가 열립니다.</p>
 </header>
 
 <section class="grid">
 
-<!-- 20권 카드 -->
-<article class="card" onclick="goLibrary('문 밖에 사자가 있다')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" />
+<!-- 카드 시작 -->
+
+<article class="card" onclick="goLibrary('도서관에서 만나요')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=도서관에서+만나요" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">문 밖에 사자가 있다</h2>
-    <p class="subtitle">윤아해 · 뜨인돌어린이</p>
+    <h2 class="title">도서관에서 만나요</h2>
+    <p class="subtitle">가제키 가즈히토 · 천개의바람</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('문어 목욕탕')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791188867127.jpg" />
+<article class="card" onclick="goLibrary('어느 재미있는 월요일')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=어느+재미있는+월요일" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">문어 목욕탕</h2>
-    <p class="subtitle">최민지 · 노란상상</p>
+    <h2 class="title">어느 재미있는 월요일</h2>
+    <p class="subtitle">잔 마케뉴 · 풀빛</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('민들레사자의 꿈')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791190779487.jpg" />
+<article class="card" onclick="goLibrary('인사해요, 안녕!')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=인사해요,+안녕!" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">민들레사자의 꿈</h2>
-    <p class="subtitle">요코 다나카 · 진선아이</p>
+    <h2 class="title">인사해요, 안녕!</h2>
+    <p class="subtitle">김선영 · 키위북스</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('부잣집 강아지 버즈')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191126235.jpg" />
+<article class="card" onclick="goLibrary('완벽한 생일 파티')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=완벽한+생일+파티" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">부잣집 강아지 버즈</h2>
-    <p class="subtitle">마리안나 코포 · 딸기책방</p>
+    <h2 class="title">완벽한 생일 파티</h2>
+    <p class="subtitle">대니얼 그레이 바넷 · 노란상상</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('빨간 조끼 여우의 장신구 가게')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160946352.jpg" />
+<article class="card" onclick="goLibrary('우주 다녀오겠습니다')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=우주+다녀오겠습니다" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">빨간 조끼 여우의 장신구 가게</h2>
-    <p class="subtitle">김미혜 · 사계절</p>
+    <h2 class="title">우주 다녀오겠습니다</h2>
+    <p class="subtitle">장선환 · 딸기책방</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('빵이 된 백곰')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791164067107.jpg" />
+<article class="card" onclick="goLibrary('축하해 축하해')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=축하해+축하해" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">빵이 된 백곰</h2>
-    <p class="subtitle">시바타 게이코 · 길벗스쿨</p>
+    <h2 class="title">축하해 축하해</h2>
+    <p class="subtitle">이향 · 킨더랜드</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('사랑에 빠진 개구리')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791198695468.jpg" />
+<article class="card" onclick="goLibrary('친구 사귀기')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=친구+사귀기" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">사랑에 빠진 개구리</h2>
-    <p class="subtitle">맥스 벨트하우스 · 마루벌</p>
+    <h2 class="title">친구 사귀기</h2>
+    <p class="subtitle">김영진 · 길벗어린이</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('꼬물꼬물 애벌레 코라')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791166370984.jpg" />
+<article class="card" onclick="goLibrary('캬오오스! 초대합니다 공룡 놀이공원')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=캬오오스!+초대합니다+공룡+놀이공원" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">꼬물꼬물 애벌레 코라</h2>
-    <p class="subtitle">엠마 트렌터 · 사파리</p>
+    <h2 class="title">캬오오스! 초대합니다 공룡 놀이공원</h2>
+    <p class="subtitle">야마시타 코헤이 · 파스텔하우스</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('슈퍼 거북')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788993242980.jpg" />
+<article class="card" onclick="goLibrary('학교 가는 길')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=학교+가는+길" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">슈퍼 거북</h2>
-    <p class="subtitle">유설화 · 책읽는곰</p>
+    <h2 class="title">학교 가는 길</h2>
+    <p class="subtitle">이보나 흐미엘레프스카 · 논장</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('귀 없는 코끼리 알퐁소')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788968333729.jpg" />
+<article class="card" onclick="goLibrary('해골 씨의 새집')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=해골+씨의+새집" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">귀 없는 코끼리 알퐁소</h2>
-    <p class="subtitle">앙브르 라방디에 · 물주는아이</p>
+    <h2 class="title">해골 씨의 새집</h2>
+    <p class="subtitle">홍지혜 · 고래뱃속</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('아기 돼지 삼형제')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788943315603.jpg" />
+<article class="card" onclick="goLibrary('해님이 웃었어')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=해님이+웃었어" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">아기 돼지 삼형제</h2>
-    <p class="subtitle">그자비에 드뇌 · 보림</p>
+    <h2 class="title">해님이 웃었어</h2>
+    <p class="subtitle">기쿠치 치키 · 사계절</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('아기 오리들한테 길을 비켜 주세요')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952782823.jpg" />
+<article class="card" onclick="goLibrary('행복한 ㄱㄴㄷ')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=행복한+ㄱㄴㄷ" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">아기 오리들한테 길을 비켜 주세요</h2>
-    <p class="subtitle">로버트 맥클로스키 · 시공주니어</p>
+    <h2 class="title">행복한 ㄱㄴㄷ</h2>
+    <p class="subtitle">최숙희 · 웅진주니어</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('아기 쥐가 잠자러 가요')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952763082.jpg" />
+<article class="card" onclick="goLibrary('호랑이 생일날이렷다')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=호랑이+생일날이렷다" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">아기 쥐가 잠자러 가요</h2>
-    <p class="subtitle">박정완 · 시공주니어</p>
+    <h2 class="title">호랑이 생일날이렷다</h2>
+    <p class="subtitle">강혜숙 · 우리학교</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('아기 토끼의 생일 파티')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791197496325.jpg" />
+<article class="card" onclick="goLibrary('안녕')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=안녕" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">아기 토끼의 생일 파티</h2>
-    <p class="subtitle">박현종 · 종이종</p>
+    <h2 class="title">안녕</h2>
+    <p class="subtitle">박소정 · 보리출판사</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('아빠 곰이 집으로 와요')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952786050.jpg" />
+<article class="card" onclick="goLibrary('마음이 퐁퐁퐁')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=마음이+퐁퐁퐁" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">아빠 곰이 집으로 와요</h2>
-    <p class="subtitle">엘세 홀메룬 미나릭 · 시공주니어</p>
+    <h2 class="title">마음이 퐁퐁퐁</h2>
+    <p class="subtitle">김성은 · 천개의바람</p>
   </div>
 </article>
 
-<article class="card" onclick="goLibrary('악어가 쿵 작은 새가 포르르')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788939536265.jpg" />
+<article class="card" onclick="goLibrary('동물들의 위대한 대이동')">
+  <img class="cover" src="https://via.placeholder.com/200x300?text=동물들의+위대한+대이동" />
   <div class="body">
     <span class="badge easy">그림책</span>
-    <h2 class="title">악어가 쿵 작은 새가 포르르</h2>
-    <p class="subtitle">이은경 · 대교북스주니어</p>
-  </div>
-</article>
-
-<article class="card" onclick="goLibrary('안녕 달토끼야')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955821789.jpg" />
-  <div class="body">
-    <span class="badge easy">그림책</span>
-    <h2 class="title">안녕 달토끼야</h2>
-    <p class="subtitle">문승연 · 길벗어린이</p>
-  </div>
-</article>
-
-<article class="card" onclick="goLibrary('오리 왕자')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983891501.jpg" />
-  <div class="body">
-    <span class="badge easy">그림책</span>
-    <h2 class="title">오리 왕자</h2>
-    <p class="subtitle">이정록 · 바우솔</p>
-  </div>
-</article>
-
-<article class="card" onclick="goLibrary('올빼미 기사')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788949105543.jpg" />
-  <div class="body">
-    <span class="badge easy">그림책</span>
-    <h2 class="title">올빼미 기사</h2>
-    <p class="subtitle">크리스토퍼 데니스 · 비룡소</p>
-  </div>
-</article>
-
-<article class="card" onclick="goLibrary('귀여워! 판다 도감')">
-  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788964965177.jpg" />
-  <div class="body">
-    <span class="badge easy">그림책</span>
-    <h2 class="title">귀여워! 판다 도감</h2>
-    <p class="subtitle">이마이즈미 다다아키 · 토토북</p>
+    <h2 class="title">동물들의 위대한 대이동</h2>
+    <p class="subtitle">캐런 브라운 · 사파리</p>
   </div>
 </article>
 
