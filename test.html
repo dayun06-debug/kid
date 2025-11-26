@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <title>테스트</title>
+  <style>
+    .card { border:1px solid #333; padding: 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <article class="card" data-title="문 밖에 사자가 있다.">
+    <h2>문 밖에 사자가 있다</h2>
+  </article>
+  <article class="card" data-title="문어 목욕탕">
+    <h2>문어 목욕탕</h2>
+  </article>
+
+  <script>
+    document.querySelectorAll('.card').forEach(card => {
+      card.addEventListener('click', () => {
+        const title = card.getAttribute('data-title').trim();
+        const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
+        window.open(url, '_blank');
+      });
+    });
+  </script>
+</body>
+</html>
