@@ -120,13 +120,14 @@
 <script>
 /**
  * 책 제목을 받아 지정된 서초구립도서관 URL에서 자동 검색을 수행합니다.
+ * 검색 결과를 새 창(탭)에서 바로 표시합니다.
  * @param {string} title - 검색할 책의 제목
  */
 function searchBook(title){
   // URL에 검색 키워드를 인코딩하여 포함
   const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
-  // 현재 창에서 검색 페이지로 이동 (자동 검색 결과 표시)
-  window.location.href = url;
+  // 새 창(탭)을 열어 검색 결과 페이지로 이동
+  window.open(url, '_blank');
 }
 </script>
 </head>
@@ -139,7 +140,7 @@ function searchBook(title){
 
     <section class="grid">
 
-      <article class="card" onclick="searchBook(this.querySelector('.문 밖에 사자가 있다').innerText)">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
