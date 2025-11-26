@@ -59,6 +59,8 @@
       flex-direction:column;
       transition: transform .15s ease, box-shadow .15s ease;
       position: relative;
+      /* 커서 추가 */
+      cursor: pointer;
     }
     .card:hover{
       transform: translateY(-4px);
@@ -116,15 +118,13 @@
     }
   </style>
 <script>
-function searchBook(title) {
-const url = `https://testpublic.seocholib.or.kr/UseData?q=${encodeURIComponent(title)}`;
-window.open(url, '_blank');
-}
-</script>
-<script>
+/**
+ * 책 제목을 받아 지정된 서초구립도서관 URL에서 자동 검색을 수행합니다.
+ * @param {string} title - 검색할 책의 제목
+ */
 function searchBook(title){
 const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
-window.location.href = url;
+window.location.href = url; // 현재 창에서 검색 페이지로 이동
 }
 </script>
 </head>
@@ -137,9 +137,8 @@ window.location.href = url;
 
     <section class="grid">
 
-      <!-- 1 -->
-      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)" onclick="searchBook(this.querySelector('.title').innerText)">
-        <img class="cover" onclick="searchBook(this.parentElement.querySelector('.title').innerText)"$1 src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" / >
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788958079484.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
           <h2 class="title">문 밖에 사자가 있다</h2>
@@ -147,8 +146,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 2 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791188867127.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -157,8 +155,7 @@ window.location.href = url;
         </div>
       </article>
 
- <!-- 3 -->
-      <article class="card">
+ <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791190779487.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -167,8 +164,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 4 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791191126235.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -177,8 +173,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 5 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791160946352.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -187,8 +182,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 6 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791164067107.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -197,8 +191,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 7 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791198695468.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -207,8 +200,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 8 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791166370984.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -217,8 +209,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 9 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788993242980.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -227,8 +218,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 10 -->
-     <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788968333729.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -237,8 +227,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 11 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788943315603.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -247,8 +236,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 12 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952782823.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -257,8 +245,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 13 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952763082.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -267,8 +254,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 14 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791197496325.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -277,8 +263,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 15 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952786050.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -287,8 +272,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 16 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788939536265.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -297,8 +281,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 17 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955821789.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -307,8 +290,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 18 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983891501.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -317,8 +299,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 19 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788949105543.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -327,8 +308,7 @@ window.location.href = url;
         </div>
       </article>
 
-      <!-- 20 -->
-      <article class="card">
+      <article class="card" onclick="searchBook(this.querySelector('.title').innerText)">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788964965177.jpg" />
         <div class="body">
           <span class="badge easy">그림책</span>
@@ -340,3 +320,4 @@ window.location.href = url;
     </section>
   </main>
 </body>
+</html>
