@@ -1,0 +1,352 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AI 시대 필독서 20선 - 우면도서관 북큐레이션</title>
+  <meta name="description" content="AI 이해 및 활용 능력을 키워주는 청소년-성인 대상 추천 도서 목록입니다." />
+  <style>
+    :root{
+      --bg:#f7f7fb;
+      --card:#ffffff;
+      --muted:#555;
+      --accent-a:#10b981; /* 활용 (Green) */
+      --accent-b:#3b82f6; /* 이해 (Blue) */
+      --maxw:1200px;
+      --radius:10px;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#0f172a;
+      line-height:1.5;
+    }
+    .wrap{
+      max-width:var(--maxw);
+      margin:32px auto;
+      padding:24px;
+    }
+    header.site{
+      text-align:center;
+      margin-bottom:32px;
+    }
+    header h1{
+      font-size:32px;
+      margin:0;
+    }
+    header p.lead{
+      margin:8px 0 0;
+      color:var(--muted);
+      font-size:18px;
+    }
+    h2.section-header{
+      font-size: 24px;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 8px;
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: #111;
+      font-weight: 700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap:24px;
+      justify-content: center;
+    }
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      overflow:hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      display:flex;
+      flex-direction:column;
+      transition: transform .15s ease, box-shadow .15s ease;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    }
+    .cover{
+      width:100%;
+      height:auto;
+      aspect-ratio: 2/3;
+      background:#eee;
+      object-fit: cover;
+    }
+    .body{
+      padding:16px;
+      display:flex;
+      flex-direction:column;
+      gap:4px;
+      flex:1;
+    }
+    .badge {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: #fff;
+      padding: 2px 8px;
+      border-radius: 12px;
+      margin-bottom: 6px;
+      width: fit-content;
+    }
+    .badge.apply { background-color: var(--accent-a); }
+    .badge.understand { background-color: var(--accent-b); }
+
+    .title{
+      font-weight:700;
+      font-size:17px;
+      margin:0;
+      line-height: 1.3;
+    }
+    .subtitle {
+      font-size:14px;
+      color:var(--muted);
+      margin:0;
+    }
+    .desc{
+      font-size:14px;
+      color:#333;
+      flex:1;
+      margin-top:8px;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+    .note{
+      margin-top:40px;
+      padding-top: 20px;
+      border-top: 1px solid #ddd;
+      font-size:14px;
+      color:var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width:600px){
+      header h1 { font-size:26px; }
+      .grid { gap:16px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="site">
+      <h1>AI 시대 필독서 20선</h1>
+      <p class="lead">AI를 이해하고, 직접 활용할 수 있는 능력을 키우는 도서 큐레이션:'이해'와 '활용'</p>
+    </header>
+
+    <h2 class="section-header">🧠 큐레이션 1: AI 이해하기 (Understanding AI)</h2>
+    <section class="grid">
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791165345709.jpg" alt="이것이 인공지능이다 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">이것이 인공지능이다</h2>
+          <p class="subtitle">정두희 지음</p>
+          <p class="desc">인공지능의 기본 개념부터 학습 알고리즘의 원리, 그리고 최신 기술 동향까지 쉽게 풀어 설명함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788934972624.jpg" alt="사피엔스 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">사피엔스</h2>
+          <p class="subtitle">유발 하라리 지음</p>
+          <p class="desc">인류의 과거와 현재를 돌아보고, AI 등 첨단 기술이 통제하는 미래의 인간(호모 데우스)의 모습을 예측함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791189448937-L.jpg" alt="4차 산업혁명 시대의 로봇 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">4차 산업혁명 시대의 로봇</h2>
+          <p class="subtitle">김환근 지음</p>
+          <p class="desc">4차 산업혁명의 핵심인 로봇 기술의 발전 과정과 미래 산업, 그리고 사회에 미칠 영향을 예측함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191193855.jpg" alt="지식의 반감기 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">지식의 반감기</h2>
+          <p class="subtitle">샘 와인버그 지음</p>
+          <p class="desc">지식의 유효 기간이 짧아지는 시대에, 데이터 홍수 속에서 우리가 배워야 할 사고방식을 제시함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791190396073-L.jpg" alt="데이터 문맹 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">데이터 문맹</h2>
+          <p class="subtitle">강정수 외 지음</p>
+          <p class="desc">데이터 해석 능력이 왜 새로운 문해력으로 불리는지 설명하며, AI 시대의 필수 교양을 알려줌.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9788934966609-L.jpg" alt="노동의 종말 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">노동의 종말</h2>
+          <p class="subtitle">제러미 리프킨 지음</p>
+          <p class="desc">자동화와 AI 기술이 인류의 노동과 경제 구조에 미치는 근본적인 영향을 논하며, 미래 사회의 변화상을 예측함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9788932918881-L.jpg" alt="21세기 빅 퀘스천 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">21세기 빅 퀘스천</h2>
+          <p class="subtitle">마틴 리스 지음</p>
+          <p class="desc">AI, 유전공학 등 인류의 생존을 위협하는 거대 과학 질문들을 던지며 윤리적 판단의 중요성을 강조함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791196144576-L.jpg" alt="미래의 속도 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">미래의 속도</h2>
+          <p class="subtitle">짐 바그너 외 지음</p>
+          <p class="desc">급변하는 기술의 속도와 혁신의 방향을 분석하고, AI 시대에 조직과 개인이 생존하기 위한 전략을 제시함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9788989508826-L.jpg" alt="우리가 아직 모르는 것들 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">우리가 아직 모르는 것들</h2>
+          <p class="subtitle">프랭크 윌첵 외 지음</p>
+          <p class="desc">미지의 영역을 탐구하는 과학자들의 질문을 통해, AI 연구의 궁극적 목표와 한계를 생각하게 함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9788950942589-L.jpg" alt="세계를 움직이는 100가지 기계 표지" />
+        <div class="body">
+          <span class="badge understand">이해</span>
+          <h2 class="title">세계를 움직이는 100가지 기계</h2>
+          <p class="subtitle">클라이브 기포드 지음</p>
+          <p class="desc">바퀴부터 컴퓨터까지, 세상을 바꾼 핵심 기계의 작동 원리와 역사를 소개하여 과학적 소양과 기술 이해를 도움.</p>
+        </div>
+      </article>
+    </section>
+
+    <h2 class="section-header">🛠️ 큐레이션 2: AI 활용하기 (Applying AI)</h2>
+    <section class="grid">
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791162244243.jpg" alt="파이썬으로 배우는 누구나 코딩 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">파이썬으로 배우는 누구나 코딩</h2>
+          <p class="subtitle">강환수 외 지음</p>
+          <p class="desc">AI/ML 분야에서 가장 많이 쓰이는 파이썬 언어의 기초부터 실습까지 쉽게 배워 직접 코드를 작성할 수 있도록 도움.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791165210885.jpg" alt="Git 교과서 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">Git 교과서</h2>
+          <p class="subtitle">이호진 지음</p>
+          <p class="desc">코딩 프로젝트의 효율적인 관리와 협업을 위한 필수 도구인 Git의 사용법을 알려주어 개발 환경 적응을 도움.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791165421712-L.jpg" alt="C언어 코딩 도장 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">C언어 코딩 도장</h2>
+          <p class="subtitle">길벗 IT</p>
+          <p class="desc">프로그래밍의 기초 논리를 단단하게 잡아주는 C언어의 문법을 익히고 알고리즘적 사고를 훈련함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791185890678.jpg" alt="TCP/IP 쉽게, 더 쉽게 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">TCP/IP 쉽게, 더 쉽게</h2>
+          <p class="subtitle">리브로웍스 지음</p>
+          <p class="desc">인터넷 통신의 기본 원리인 TCP/IP를 이해하여, AI 서비스가 데이터를 주고받는 네트워크 환경을 파악할 수 있음.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791168430856-L.jpg" alt="코딩을 지탱하는 기술 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">코딩을 지탱하는 기술</h2>
+          <p class="subtitle">니시오 히로카즈 지음</p>
+          <p class="desc">코딩의 기본 구조와 프로그래밍 언어의 작동 원리 등 소프트웨어를 지탱하는 근본 기술을 이해할 수 있음.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9788960549216-L.jpg" alt="논리적 사고, 합리적 판단 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">논리적 사고, 합리적 판단</h2>
+          <p class="subtitle">바루흐 피슈호프 외 지음</p>
+          <p class="desc">정보를 분석하고 편향을 극복하며 합리적인 결정을 내리는 방법을 훈련하여, AI를 비판적으로 활용하는 능력을 키울 수 있음.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191193855.jpg" alt="데이터 시대, 일하는 방식의 변화 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">데이터 시대, 일하는 방식의 변화</h2>
+          <p class="subtitle">앤서니 골드붐 지음</p>
+          <p class="desc">데이터 기반 의사 결정을 내리는 방법과 효율적인 디지털 도구 사용법 등 AI 시대의 실질적인 업무 방식을 제시함.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791161783038-L.jpg" alt="메타버스 이야기 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">메타버스 이야기</h2>
+          <p class="subtitle">이임복 지음</p>
+          <p class="desc">가상현실 플랫폼인 메타버스를 기획하고 구축하는 기술을 소개하며, AI를 활용한 새로운 디지털 환경 창조에 대한 이해를 도움.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791167905187-L.jpg" alt="정보 윤리 수업 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">정보 윤리 수업</h2>
+          <p class="subtitle">김재명 외 지음</p>
+          <p class="desc">개인 정보 보호, 저작권, 인공지능 윤리 등 기술 활용에 앞서 필수적으로 갖춰야 할 윤리적 태도를 배울 수 있음.</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <img class="cover" src="https://covers.openlibrary.org/b/isbn/9791167660299-L.jpg" alt="읽지 못하는 사람들 표지" />
+        <div class="body">
+          <span class="badge apply">활용</span>
+          <h2 class="title">읽지 못하는 사람들</h2>
+          <p class="subtitle">매슈 루버리 지음</p>
+          <p class="desc">디지털 격차와 문맹의 문제를 다루며, AI 기술을 개발할 때 모든 사용자가 쉽게 접근할 수 있도록 고민하게 함.</p>
+        </div>
+      </article>
+    </section>
+
+    <div class="note">
+      <p>📌 해당 도서 목록은 '2025년 우면도서관 개관장서 자료선정목록' 내의 도서로만 선정되었습니다..</p>
+    </div>
+  </main>
+</body>
+</html>
