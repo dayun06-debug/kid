@@ -20,7 +20,8 @@ body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Robo
 </style>
 <script>
 function searchBook(title) {
-  const url = 'https://yangjae.seocholib.or.kr/TotalSearch?searchKeyword=' + encodeURIComponent(title.trim());
+  const query = encodeURIComponent(title.trim() + " 양재도서관");
+  const url = 'https://www.google.com/search?q=' + query;
   window.open(url, '_blank');
 }
 </script>
@@ -125,7 +126,95 @@ function searchBook(title) {
   </div>
 </article>
 
-<!-- 나머지 10권도 동일한 형식으로 추가 -->
+<article class="card" onclick="searchBook('아기 돼지 삼형제')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788943315603.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">아기 돼지 삼형제</h2>
+    <p class="subtitle">그자비에 드뇌 · 보림</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('아기 오리들한테 길을 비켜 주세요')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952782823.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">아기 오리들한테 길을 비켜 주세요</h2>
+    <p class="subtitle">로버트 맥클로스키 · 시공주니어</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('아기 쥐가 잠자러 가요')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952763082.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">아기 쥐가 잠자러 가요</h2>
+    <p class="subtitle">박정완 · 시공주니어</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('아기 토끼의 생일 파티')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9791197496325.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">아기 토끼의 생일 파티</h2>
+    <p class="subtitle">박현종 · 종이종</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('아빠 곰이 집으로 와요')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788952786050.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">아빠 곰이 집으로 와요</h2>
+    <p class="subtitle">엘세 홀메룬 미나릭 · 시공주니어</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('악어가 쿵 작은 새가 포르르')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788939536265.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">악어가 쿵 작은 새가 포르르</h2>
+    <p class="subtitle">이은경 · 대교북스주니어</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('안녕 달토끼야')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955821789.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">안녕 달토끼야</h2>
+    <p class="subtitle">문승연 · 길벗어린이</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('오리 왕자')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788983891501.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">오리 왕자</h2>
+    <p class="subtitle">이정록 · 바우솔</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('올빼미 기사')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788949105543.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">올빼미 기사</h2>
+    <p class="subtitle">크리스토퍼 데니스 · 비룡소</p>
+  </div>
+</article>
+
+<article class="card" onclick="searchBook('귀여워! 판다 도감')">
+  <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/200x0/pdt/9788964965177.jpg" />
+  <div class="body">
+    <span class="badge easy">그림책</span>
+    <h2 class="title">귀여워! 판다 도감</h2>
+    <p class="subtitle">이마이즈미 다다아키 · 토토북</p>
+  </div>
+</article>
 
 </section>
 </main>
