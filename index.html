@@ -115,6 +115,18 @@
       .grid { gap:16px; }
     }
   </style>
+  <script>
+function searchBook(title) {
+const url = `https://testpublic.seocholib.or.kr/UseData?q=${encodeURIComponent(title)}`;
+window.open(url, '_blank');
+}
+</script>
+<script>
+function searchBook(title){
+const url = `https://testpublic.seocholib.or.kr/UseData?searchKeyword=${encodeURIComponent(title)}`;
+window.location.href = url;
+}
+</script>
 </head>
 <body>
   <main class="wrap">
