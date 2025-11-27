@@ -4,175 +4,282 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>안녕? 새로운 시작이야!</title>
+
   <style>
-    body { margin:0; font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans KR", Arial, sans-serif; background:#f7f7fb; color:#0f172a; }
-    .wrap { max-width:1200px; margin:32px auto; padding:24px; }
-    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:24px; }
-    .card { background:#fff; border-radius:10px; overflow:hidden; box-shadow:0 4px 12px rgba(0,0,0,0.05); cursor:pointer; transition: transform .15s ease, box-shadow .15s ease; display:flex; flex-direction:column; text-decoration:none; color:inherit; }
-    .card:hover { transform:translateY(-4px); box-shadow:0 8px 24px rgba(0,0,0,0.1); }
-    .cover { width:100%; aspect-ratio:2/3; object-fit:cover; background:#eee; }
-    .body { padding:16px; display:flex; flex-direction:column; gap:4px; flex:1; }
-    .badge { display:inline-block; font-size:11px; font-weight:700; color:#fff; padding:2px 8px; border-radius:12px; margin-bottom:6px; width:fit-content; }
-    .badge.easy { background-color:#10b981; }
-    .title { font-weight:700; font-size:17px; margin:0; line-height:1.3; }
-    .subtitle { font-size:14px; color:#555; margin:0; }
-    @media (max-width:600px){ .grid { gap:16px; } }
+    :root {
+      --bg: linear-gradient(180deg, #fdf6f9 0%, #f8fbff 100%);
+      --card-bg: #ffffff;
+      --text-main: #374151;
+      --text-muted: #6b7280;
+      --radius: 18px;
+      --shadow: 0 6px 18px rgba(0,0,0,0.06);
+
+      --tag: #f472b6;   /* 핑크 포인트 */
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Noto Sans KR", "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+    header.site {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    header.site h1 {
+      font-size: 30px;
+      font-weight: 800;
+      margin: 0;
+      color: #ec4899;
+    }
+
+    header.site p {
+      margin-top: 8px;
+      font-size: 15px;
+      color: var(--text-muted);
+    }
+
+    .copy-note {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      background: #ffe4ef;
+      color: #ec4899;
+      border-radius: 999px;
+      font-size: 13px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: transform .25s cubic-bezier(.34,1.56,.64,1), box-shadow .2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 10px 28px rgba(0,0,0,0.1);
+    }
+
+    .cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      background: #fde7ef;
+    }
+
+    .body {
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .badge {
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--tag);
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 6px;
+    }
+
+    .title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 0;
+      color: #d946ef;
+    }
+
+    .subtitle {
+      margin: 4px 0 0;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      header.site h1 { font-size: 26px; }
+      .grid { gap: 16px; }
+    }
   </style>
+
   <script>
     function goLibrary(title){
-      navigator.clipboard.writeText(title.trim()).then(() => {
-        alert(`"${title}" 가 복사되었습니다.\n양재도서관 검색창에 붙여넣기 해주세요.`);
-      }, () => {
-        alert('복사 실패. 수동으로 복사해주세요.');
-      });
-      window.open('https://yangjae.seocholib.or.kr/TotalSearch', '_blank');
+      navigator.clipboard.writeText(title.trim()).catch(()=>{});
     }
   </script>
 </head>
+
 <body>
   <main class="wrap">
+
     <header class="site">
       <h1>안녕? 새로운 시작이야!</h1>
-      <p>우면 도서관의 새로운 시작을 축하해!</p>
+      <p>우면도서관 그림책 추천🌷</p>
+      <span class="copy-note">📌 표지를 클릭하면 책 제목이 자동으로 복사되고 도서관 홈페이지로 이동됩니다.</span>
     </header>
 
     <section class="grid">
 
       <article class="card" onclick="goLibrary('도서관에서 만나요')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788997984466.jpg" alt="도서관에서 만나요 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788997984466.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">도서관에서 만나요</h2>
           <p class="subtitle">가제키 가즈히토 · 천개의바람</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('어느 재미있는 월요일')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791161725703.jpg" alt="어느 재미있는 월요일 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791161725703.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">어느 재미있는 월요일</h2>
           <p class="subtitle">잔 마케뉴 · 풀빛</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('인사해요, 안녕!')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791185173498.jpg" alt="인사해요, 안녕! 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791185173498.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">인사해요, 안녕!</h2>
           <p class="subtitle">김선영 · 키위북스</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('완벽한 생일 파티')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191667844.jpg" alt="완벽한 생일 파티 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191667844.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">완벽한 생일 파티</h2>
           <p class="subtitle">대니얼 그레이 바넷 · 노란상상</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('우주 다녀오겠습니다')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191126198.jpg" alt="우주 다녀오겠습니다 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191126198.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">우주 다녀오겠습니다</h2>
           <p class="subtitle">장선환 · 딸기책방</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('축하해 축하해')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791170820291.jpg" alt="축하해 축하해 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791170820291.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">축하해 축하해</h2>
           <p class="subtitle">이향 · 킨더랜드</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('친구 사귀기')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955824476.jpg" alt="친구 사귀기 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955824476.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">친구 사귀기</h2>
           <p class="subtitle">김영진 · 길벗어린이</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('캬오오스! 초대합니다 공룡 놀이공원')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791198332981.jpg" alt="캬오오스! 초대합니다 공룡 놀이공원 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791198332981.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">캬오오스! 초대합니다 공룡 놀이공원</h2>
           <p class="subtitle">야마시타 코헤이 · 파스텔하우스</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('학교 가는 길')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788984141346.jpg" alt="학교 가는 길 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788984141346.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">학교 가는 길</h2>
           <p class="subtitle">이보나 흐미엘레프스카 · 논장</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('해골 씨의 새집')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791193138083.jpg" alt="해골 씨의 새집 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791193138083.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">해골 씨의 새집</h2>
           <p class="subtitle">홍지혜 · 고래뱃속</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('해님이 웃었어')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791160949131.jpg" alt="해님이 웃었어 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791160949131.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">해님이 웃었어</h2>
           <p class="subtitle">기쿠치 치키 · 사계절</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('행복한 ㄱㄴㄷ')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788901163154.jpg" alt="행복한 ㄱㄴㄷ 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788901163154.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">행복한 ㄱㄴㄷ</h2>
           <p class="subtitle">최숙희 · 웅진주니어</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('호랑이 생일날이렷다')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791167550347.jpg" alt="호랑이 생일날이렷다 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791167550347.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">호랑이 생일날이렷다</h2>
           <p class="subtitle">강혜숙 · 우리학교</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('안녕')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791163142171.jpg" alt="안녕 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791163142171.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">안녕</h2>
           <p class="subtitle">박소정 · 보리출판사</p>
         </div>
       </article>
 
       <article class="card" onclick="goLibrary('마음이 퐁퐁퐁')">
-        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791187287407.jpg" alt="마음이 퐁퐁퐁 표지" />
+        <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791187287407.jpg" />
         <div class="body">
-          <span class="badge easy">그림책</span>
+          <span class="badge">그림책</span>
           <h2 class="title">마음이 퐁퐁퐁</h2>
           <p class="subtitle">김성은 · 천개의바람</p>
         </div>
       </article>
+
     </section>
+
   </main>
 </body>
 </html>
