@@ -13,8 +13,7 @@
       --text-muted: #6b7280;
       --radius: 18px;
       --shadow: 0 6px 18px rgba(0,0,0,0.06);
-
-      --tag: #f472b6;   /* 핑크 포인트 */
+      --tag: #f472b6;
     }
 
     * { box-sizing: border-box; }
@@ -127,7 +126,11 @@
 
   <script>
     function goLibrary(title){
+      // 1) 제목 자동복사
       navigator.clipboard.writeText(title.trim()).catch(()=>{});
+
+      // 2) 양재도서관 통합검색 페이지 새 탭에서 열기
+      window.open("https://yangjae.seocholib.or.kr/TotalSearch", "_blank");
     }
   </script>
 </head>
@@ -137,12 +140,13 @@
 
     <header class="site">
       <h1>안녕? 새로운 시작이야!</h1>
-      <p>우면도서관 그림책 추천🌷: 설레고 즐거운 시작. 함게해요!</p>
-      <span class="copy-note">📌 표지를 클릭하면 책 제목이 자동으로 복사되고 도서관 홈페이지로 이동됩니다.</span>
+      <p>우면도서관 그림책 추천🌷: 설레고 즐거운 시작, 함께해요!</p>
+      <span class="copy-note">📌 표지를 클릭하면 제목이 자동 복사되고 도서관 홈페이지로 이동됩니다.</span>
     </header>
 
     <section class="grid">
 
+      <!-- 1 -->
       <article class="card" onclick="goLibrary('도서관에서 만나요')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788997984466.jpg" />
         <div class="body">
@@ -152,6 +156,7 @@
         </div>
       </article>
 
+      <!-- 2 -->
       <article class="card" onclick="goLibrary('어느 재미있는 월요일')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791161725703.jpg" />
         <div class="body">
@@ -161,6 +166,7 @@
         </div>
       </article>
 
+      <!-- 3 -->
       <article class="card" onclick="goLibrary('인사해요, 안녕!')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791185173498.jpg" />
         <div class="body">
@@ -170,6 +176,7 @@
         </div>
       </article>
 
+      <!-- 4 -->
       <article class="card" onclick="goLibrary('완벽한 생일 파티')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191667844.jpg" />
         <div class="body">
@@ -179,6 +186,7 @@
         </div>
       </article>
 
+      <!-- 5 -->
       <article class="card" onclick="goLibrary('우주 다녀오겠습니다')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791191126198.jpg" />
         <div class="body">
@@ -188,6 +196,7 @@
         </div>
       </article>
 
+      <!-- 6 -->
       <article class="card" onclick="goLibrary('축하해 축하해')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791170820291.jpg" />
         <div class="body">
@@ -197,6 +206,7 @@
         </div>
       </article>
 
+      <!-- 7 -->
       <article class="card" onclick="goLibrary('친구 사귀기')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788955824476.jpg" />
         <div class="body">
@@ -206,6 +216,7 @@
         </div>
       </article>
 
+      <!-- 8 -->
       <article class="card" onclick="goLibrary('캬오오스! 초대합니다 공룡 놀이공원')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791198332981.jpg" />
         <div class="body">
@@ -215,6 +226,7 @@
         </div>
       </article>
 
+      <!-- 9 -->
       <article class="card" onclick="goLibrary('학교 가는 길')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788984141346.jpg" />
         <div class="body">
@@ -224,6 +236,7 @@
         </div>
       </article>
 
+      <!-- 10 -->
       <article class="card" onclick="goLibrary('해골 씨의 새집')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791193138083.jpg" />
         <div class="body">
@@ -233,6 +246,7 @@
         </div>
       </article>
 
+      <!-- 11 -->
       <article class="card" onclick="goLibrary('해님이 웃었어')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791160949131.jpg" />
         <div class="body">
@@ -242,6 +256,7 @@
         </div>
       </article>
 
+      <!-- 12 -->
       <article class="card" onclick="goLibrary('행복한 ㄱㄴㄷ')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9788901163154.jpg" />
         <div class="body">
@@ -251,6 +266,7 @@
         </div>
       </article>
 
+      <!-- 13 -->
       <article class="card" onclick="goLibrary('호랑이 생일날이렷다')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791167550347.jpg" />
         <div class="body">
@@ -260,6 +276,7 @@
         </div>
       </article>
 
+      <!-- 14 -->
       <article class="card" onclick="goLibrary('안녕')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791163142171.jpg" />
         <div class="body">
@@ -269,6 +286,7 @@
         </div>
       </article>
 
+      <!-- 15 -->
       <article class="card" onclick="goLibrary('마음이 퐁퐁퐁')">
         <img class="cover" src="https://contents.kyobobook.co.kr/sih/fit-in/458x0/pdt/9791187287407.jpg" />
         <div class="body">
