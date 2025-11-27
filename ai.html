@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>안녕? 새로운 시작이야! - AI 북큐레이션</title>
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at top, #1f2937 0, #020617 45%, #020617 100%);
+      --card-bg: #0b1120;
+      --card-border: rgba(148, 163, 184, 0.4);
+      --accent: #38bdf8;
+      --accent-soft: rgba(56,189,248,0.1);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --badge-understand: #4ade80;
+      --badge-use: #f97316;
+      --radius: 14px;
+      --shadow-soft: 0 18px 45px rgba(15,23,42,0.6);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Noto Sans KR", "Apple SD Gothic Neo", "맑은 고딕", Arial, sans-serif;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 40px auto 56px;
+      padding: 0 20px;
+    }
+
+    header.site {
+      text-align: left;
+      margin-bottom: 32px;
+    }
+
+    header.site h1 {
+      font-size: 28px;
+      margin: 0 0 10px;
+      letter-spacing: 0.04em;
+    }
+
+    header.site p.lead {
+      margin: 0 0 6px;
+      color: var(--text-muted);
+      font-size: 15px;
+    }
+
+    header.site .tagline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      background: rgba(15,23,42,0.6);
+    }
+
+    header.site .tag-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 0 4px var(--accent-soft);
+    }
+
+    .section-block {
+      margin-top: 36px;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      gap: 8px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-pill {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 2px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      color: var(--text-muted);
+    }
+
+    .section-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      max-width: 520px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(15,23,42,0.95), rgba(15,23,42,0.9));
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--card-border);
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transform: translateY(0) translateZ(0);
+      transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        background 0.18s ease;
+      position: relative;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      background: radial-gradient(circle at top, rgba(56,189,248,0.25), transparent 55%);
+      transition: opacity 0.18s ease;
+      pointer-events: none;
+    }
+
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 26px 60px rgba(15,23,42,0.9);
+      border-color: rgba(148,163,184,0.7);
+      background: linear-gradient(150deg, rgba(15,23,42,0.98), rgba(15,23,42,0.9));
+    }
+
+    .card:hover::before {
+      opacity: 1;
+    }
+
+    .cover-wrap {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(15,23,42,0.9);
+    }
+
+    .cover {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 3/4;
+      object-fit: cover;
+      display: block;
+      background: #020617;
+      filter: saturate(1.05);
+      transform: scale(1.02);
+      transition: transform 0.25s ease, filter 0.25s ease, opacity 0.25s ease;
+    }
+
+    .card:hover .cover {
+      transform: scale(1.05);
+      filter: saturate(1.2);
+    }
+
+    .body {
+      padding: 14px 14px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      color: #0b1120;
+      padding: 2px 9px;
+      border-radius: 999px;
+      margin-bottom: 4px;
+    }
+
+    .badge-understand {
+      background-color: var(--badge-understand);
+    }
+    .badge-use {
+      background-color: var(--badge-use);
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: #0b1120;
+      opacity: 0.7;
+    }
+
+    .title {
+      font-weight: 600;
+      font-size: 16px;
+      margin: 0;
+      line-height: 1.4;
+    }
+
+    .subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin: 0 0 4px;
+      min-height: 2.6em;
+    }
+
+    .desc {
+      font-size: 13px;
+      color: #e5e7eb;
+      margin: 0;
+      opacity: 0.95;
+    }
+
+    .helper {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 768px) {
+      .wrap {
+        margin-top: 28px;
+        margin-bottom: 40px;
+      }
+      header.site h1 {
+        font-size: 22px;
+      }
+      .section-title {
+        font-size: 18px;
+      }
+    }
+  </style>
+  <script>
+    function goLibrary(title){
+      navigator.clipboard.writeText(title.trim()).then(() => {
+        alert(`"${title}" 가 복사되었습니다.\n양재도서관 검색창에 붙여넣기 해주세요.`);
+      }, () => {
+        alert('복사에 실패했어요. 제목을 직접 복사해 주세요.');
+      });
+      window.open('https://yangjae.seocholib.or.kr/TotalSearch', '_blank');
+    }
+  </script>
+</head>
+<body>
+  <main class="wrap">
+    <header class="site">
+      <h1>안녕? 새로운 시작이야!</h1>
+      <p class="lead">AI 시대, 우리는 무엇을 알고 어떻게 활용해야 할까?</p>
+      <p class="lead">우면도서관이 고른 20권의 책으로, 새로운 시작을 준비해 보세요.</p>
+      <div class="tagline">
+        <span class="tag-dot"></span>
+        <span>표지를 클릭하면 책 제목이 복사되고, 양재도서관 통합검색 페이지가 열립니다.</span>
+      </div>
+    </header>
+
+    <!-- AI 이해하기 섹션 -->
+    <section class="section-block">
+      <div class="section-header">
+        <div class="section-title">
+          AI 이해하기
+          <span class="section-pill">개념 · 전망 · 윤리</span>
+        </div>
+        <p class="section-desc">
+          기술 자체보다 먼저, 세상이 어떻게 바뀌고 있는지 이해하는 시간입니다.
+          인공지능이 불러올 변화와 그 안에서의 ‘인간다움’을 함께 생각해 보세요.
+        </p>
+      </div>
+
+      <section class="grid">
+
+        <article class="card" onclick="goLibrary('AI 시대, 변화 속 인간의 미래')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+시대,+변화+속+인간의+미래" alt="AI 시대, 변화 속 인간의 미래 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI 시대, 변화 속 인간의 미래</h2>
+            <p class="subtitle">빠르게 변하는 기술 속에서 인간의 자리를 다시 묻는 책</p>
+            <p class="desc">AI가 일·관계·삶의 방식을 어떻게 바꾸는지 차분하게 짚어 보며, 앞으로 무엇을 준비해야 할지 생각하게 합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI는 세상을 어떻게 바꾸는가')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI는+세상을+어떻게+바꾸는가" alt="AI는 세상을 어떻게 바꾸는가 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI는 세상을 어떻게 바꾸는가</h2>
+            <p class="subtitle">산업·경제·문화 전반에서 AI가 만들어낼 재편의 구조</p>
+            <p class="desc">기술 소개에 그치지 않고, 비즈니스 모델과 사회 구조의 변화까지 연결해 보여 주는 인공지능 개론서입니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('인공지능의 시대, 인간을 다시 묻다')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=인공지능의+시대,+인간을+다시+묻다" alt="인공지능의 시대, 인간을 다시 묻다 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">인공지능의 시대, 인간을 다시 묻다</h2>
+            <p class="subtitle">기술의 진보가 인간에게 던지는 철학적 질문들</p>
+            <p class="desc">인공지능이 인간의 영역을 침범할수록, 우리는 무엇으로 존재할 수 있을까. 윤리와 정체성에 대한 깊은 사유를 담았습니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('3년 후 AI 초격차 시대가 온다')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=3년+후+AI+초격차+시대가+온다" alt="3년 후 AI 초격차 시대가 온다 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">3년 후 AI 초격차 시대가 온다</h2>
+            <p class="subtitle">눈앞으로 다가온 ‘초격차’ 시대의 생존 전략</p>
+            <p class="desc">우리 삶과 일터에 영향을 줄 구체적인 변화 시나리오를 제시하며, 개인과 조직이 준비해야 할 방향을 제안합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 2045 인공지능 미래보고서')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+2045+미래보고서" alt="AI 2045 인공지능 미래보고서 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI 2045 인공지능 미래보고서</h2>
+            <p class="subtitle">멀지 않은 미래를 구체적으로 그려 보는 인공지능 리포트</p>
+            <p class="desc">기술·산업·도시·교육 등 여러 영역에서 2045년을 가정하며, AI가 바꿀 세상을 차분히 전망합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 쇼크, 다가올 미래')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+쇼크,+다가올+미래" alt="AI 쇼크, 다가올 미래 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI 쇼크, 다가올 미래</h2>
+            <p class="subtitle">일자리와 산업에 닥칠 충격을 데이터로 읽다</p>
+            <p class="desc">과장된 공포가 아닌, 실제 수치와 사례를 기반으로 AI로 인한 구조 변화를 짚어 줍니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 슈퍼파워')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+슈퍼파워" alt="AI 슈퍼파워 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI 슈퍼파워</h2>
+            <p class="subtitle">미국과 중국, 두 기술 강국의 정면 승부</p>
+            <p class="desc">AI 패권 경쟁의 흐름을 통해, 전 세계 기술·경제 지형이 어떻게 변화하는지 입체적으로 보여 줍니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 지도책')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+지도책" alt="AI 지도책 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI 지도책</h2>
+            <p class="subtitle">복잡한 인공지능 세계를 한눈에 보는 입문 지도</p>
+            <p class="desc">머신러닝, 딥러닝, 생성형 AI 등 다양한 기술 개념을 큰 그림 속에서 이해하고 싶은 분께 추천합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI는 일하고 인간은 성장한다')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI는+일하고+인간은+성장한다" alt="AI는 일하고 인간은 성장한다 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI는 일하고 인간은 성장한다</h2>
+            <p class="subtitle">‘일의 재구성’이라는 관점에서 본 인공지능</p>
+            <p class="desc">단순히 일자리가 사라진다는 공포보다, 인간이 더 가치 있는 일에 집중할 수 있는 가능성에 주목합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI는 차별을 인간에게서 배운다')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI는+차별을+인간에게서+배운다" alt="AI는 차별을 인간에게서 배운다 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-understand">
+              <span class="badge-dot"></span> AI 이해하기
+            </span>
+            <h2 class="title">AI는 차별을 인간에게서 배운다</h2>
+            <p class="subtitle">인공지능의 편향과 차별 문제를 직시하는 책</p>
+            <p class="desc">데이터에 스며든 사회적 편견이 어떻게 알고리즘을 통해 재생산되는지, 다양한 사례로 보여 줍니다.</p>
+          </div>
+        </article>
+
+      </section>
+    </section>
+
+    <!-- AI 활용하기 섹션 -->
+    <section class="section-block">
+      <div class="section-header">
+        <div class="section-title">
+          AI 활용하기
+          <span class="section-pill">실전 · 업무 · 일상</span>
+        </div>
+        <p class="section-desc">
+          이제는 직접 써 볼 차례입니다. 문서 작성, 기획, 학습, 이미지·영상까지
+          일과 생활 곳곳에서 AI를 도구처럼 활용할 수 있는 방법을 안내합니다.
+        </p>
+      </div>
+
+      <section class="grid">
+
+        <article class="card" onclick="goLibrary('1400만 직장인을 위한 챗GPT 비즈니스 프롬프트')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=챗GPT+비즈니스+프롬프트" alt="1400만 직장인을 위한 챗GPT 비즈니스 프롬프트 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">1400만 직장인을 위한 챗GPT 비즈니스 프롬프트</h2>
+            <p class="subtitle">업무 현장에서 바로 쓰는 실전 프롬프트 모음</p>
+            <p class="desc">보고서, 회의록, 마케팅 문구, 기획 아이디어까지, 상황별로 복사·붙여넣기만 해도 도움이 되는 예시를 담았습니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 전환 시대엔 혼자보다 함께, 클로드 AI 글쓰기')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=클로드+AI+글쓰기" alt="클로드 AI 글쓰기 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">클로드 AI 글쓰기</h2>
+            <p class="subtitle">AI와 함께 쓰는 글, 어떻게 다를까?</p>
+            <p class="desc">보고서·메일·콘텐츠 글까지, 글쓰기 파트너로서 AI를 활용하는 구체적인 대화 방식과 예시를 제시합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('OpenAI, 구글 Gemini, 업스테이지 Solar API를 활용한 실전 LLM 앱 개발')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=실전+LLM+앱+개발" alt="실전 LLM 앱 개발 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">실전 LLM 앱 개발</h2>
+            <p class="subtitle">직접 만들어 보는 나만의 AI 서비스</p>
+            <p class="desc">기본 API 사용부터 간단한 챗봇·도우미 서비스 제작까지, 개발자가 아니어도 흐름을 이해하는 데 도움이 됩니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('누구나 쉽게 배우는 인공지능 스타트 with 챗GPT')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=인공지능+스타트+with+챗GPT" alt="인공지능 스타트 with 챗GPT 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">인공지능 스타트 with 챗GPT</h2>
+            <p class="subtitle">AI 첫걸음을 떼고 싶은 분들을 위한 안내서</p>
+            <p class="desc">복잡한 코드 없이, 챗GPT를 중심으로 AI를 체험하고 학습하는 방법을 단계별로 안내합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('된다 하루 만에 만드는 AI 사진 & 이미지')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+사진+&+이미지" alt="된다 하루 만에 만드는 AI 사진 & 이미지 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">된다 하루 만에 만드는 AI 사진 & 이미지</h2>
+            <p class="subtitle">이미지 생성 AI, 어렵지 않게 시작하기</p>
+            <p class="desc">간단한 프롬프트만으로도 표지·포스터·SNS 이미지를 만들어 보는, 실습 중심의 안내입니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI 캡컷')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+캡컷" alt="AI 캡컷 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">AI 캡컷</h2>
+            <p class="subtitle">영상 편집도 AI에게 도와 달라고 말해 보기</p>
+            <p class="desc">캡컷의 AI 기능을 이용해 자막·편집·효과를 손쉽게 처리하는 방법을 알려주는 실전 가이드입니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('Chat GPT와 함께하는 대학생활')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=ChatGPT와+함께하는+대학생활" alt="ChatGPT와 함께하는 대학생활 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">ChatGPT와 함께하는 대학생활</h2>
+            <p class="subtitle">리포트, 공부, 계획까지 AI와 함께</p>
+            <p class="desc">자료 조사, 글쓰기, 일정 관리 등 대학생활 속 다양한 장면에서 챗GPT를 활용하는 구체적인 예를 담았습니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('1년 안에 AI 빅데이터 전문가가 되는 법')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI+빅데이터+전문가가+되는+법" alt="1년 안에 AI 빅데이터 전문가가 되는 법 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">1년 안에 AI 빅데이터 전문가가 되는 법</h2>
+            <p class="subtitle">비전공자를 위한 커리어 로드맵</p>
+            <p class="desc">어디서부터 무엇을 공부해야 할지 막막한 분들에게, 현실적인 학습 순서와 방향을 제시합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI생활, 매순간이 달라진다')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI생활,+매순간이+달라진다" alt="AI생활, 매순간이 달라진다 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">AI생활, 매순간이 달라진다</h2>
+            <p class="subtitle">작은 일부터 차근차근 바꾸는 AI 활용법</p>
+            <p class="desc">가계부, 일정 관리, 건강, 취미 등 일상 영역에서 AI를 ‘생활 도구’처럼 사용하는 다양한 사례를 소개합니다.</p>
+          </div>
+        </article>
+
+        <article class="card" onclick="goLibrary('AI활용능력 — AI상식')">
+          <div class="cover-wrap">
+            <img class="cover" src="https://via.placeholder.com/400x520?text=AI활용능력+AI상식" alt="AI활용능력 상식 표지" />
+          </div>
+          <div class="body">
+            <span class="badge badge-use">
+              <span class="badge-dot"></span> AI 활용하기
+            </span>
+            <h2 class="title">AI활용능력 — AI상식</h2>
+            <p class="subtitle">실제 상황에서 바로 써먹는 AI 기본기</p>
+            <p class="desc">생성형 AI, 빅데이터, 자동화 등 핵심 개념을 ‘시험 대비’가 아닌 ‘실제 활용’을 기준으로 정리한 가이드북입니다.</p>
+          </div>
+        </article>
+
+      </section>
+    </section>
+
+    <p class="helper">
+      ※ 표지는 예시 이미지입니다. 실제 북큐레이션에 맞게 교체해 사용하셔도 좋습니다.
+    </p>
+  </main>
+</body>
+</html>
